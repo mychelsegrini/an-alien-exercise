@@ -4,7 +4,8 @@ class InitialScreen extends Phaser.Scene{
     }
 
     preload(){ //Function that loads assets.
-        this.load.image('logo', "assets/logo.png") //Loads logo.
+        this.load.image('logo', "assets/logo.png"); //Loads logo.
+        this.load.audio('music', 'assets/chopin.mp3')
     }
 
     create(){ //Function that adds assets to the screen.
@@ -42,6 +43,13 @@ class InitialScreen extends Phaser.Scene{
             this.scene.start('Hardcore')
 
         });
+
+        this.music = this.sound.add('music', {
+            volume: 1,
+            loop: true
+        });
+        
+        this.music.play()
     }
 
     update(){
