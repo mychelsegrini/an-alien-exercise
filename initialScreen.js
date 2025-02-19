@@ -1,4 +1,6 @@
 class InitialScreen extends Phaser.Scene{
+    playing;
+
     constructor(){ //Function that constructs the class "InitialScreen" using the constructor function from Phaser.Scene.
         super({key: "InitialScreen"})
     }
@@ -44,12 +46,24 @@ class InitialScreen extends Phaser.Scene{
 
         });
 
-        this.music = this.sound.add('music', {
-            volume: 1,
-            loop: true
-        });
+        if(game.music == undefined){ //Adds the music as a property of the game if it is undefined.
+            game.music = this.sound.add('music', {
+                volume: 1,
+                loop: true
+            });
+        }
         
-        this.music.play()
+        if (!game.music.isPlaying){ //Plays the music only if it was not already playing.
+            setTimeout(() => {
+                game.music.play();
+                this.add.text(gameWidth/2 - 165, 560, "Playing Nocturne Op.48 No.1 - Frédéric Chopin",{color:"#39ff14"}).setScale(0.8);
+            }, 1000)
+            
+        };
+
+        if(game.music.isPlaying && game.music != undefined){
+            this.add.text(gameWidth/2 - 165, 560, "Playing Nocturne Op.48 No.1 - Frédéric Chopin",{color:"#39ff14"}).setScale(0.8);
+        }
     }
 
     update(){

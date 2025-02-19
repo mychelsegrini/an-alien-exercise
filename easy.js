@@ -80,7 +80,7 @@ class Easy extends Phaser.Scene{
         })
 
         
-    
+        console.log(game.music.isPlaying);
     }
 
     update(){

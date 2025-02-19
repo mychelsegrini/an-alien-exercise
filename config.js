@@ -16,4 +16,4 @@ const config = { //Sets constant with the game's configuration.
     }
 }
 
-const game = new Phaser.Game(config) //Creates the game as an object.
+let game = new Phaser.Game(config) //Creates the game as an object.
