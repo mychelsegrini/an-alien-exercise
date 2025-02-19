@@ -19,10 +19,9 @@ class Easy extends Phaser.Scene{
         this.tijolao = this.physics.add.staticImage(gameWidth/2, gameHeight/2, "tijolao"); //Adds the brick.
         this.money = this.physics.add.image(Phaser.Math.RND.between (50,680), 0, 'moeda'); //Adds the coin.
         this.bird = this.physics.add.sprite(Phaser.Math.RND.between (50,680), 0, 'bird').setScale(1.3); //Adds the bird.
-        this.points = 0; //Defines a variable for the points acquired by the user.
-        this.bird.points = 0; //Defines a variable for the bird's points.
-        this.placar = this.add.text(50, 50, 'Suas moedas:' + this.points, {fontSize:'20px', fill:'#495613'}); //Creates a text that shows the user's points.
-        this.bird.placar = this.add.text(450, 50, 'Moedas do pássaro:' + this.bird.points, {fontSize:'20px', fill:'#495613'}); //Creates a text that shows the bird's points.
+        this.points = [0,0]; //Defines a list that stores the points acquired by the user [0] and the bird [1].
+        this.placar = this.add.text(50, 50, 'Suas moedas:' + this.points[0], {fontSize:'20px', fill:'#495613'}); //Creates a text that shows the user's points.
+        this.bird.placar = this.add.text(450, 50, 'Moedas do pássaro:' + this.points[1], {fontSize:'20px', fill:'#495613'}); //Creates a text that shows the bird's points.
         this.exit = this.add.text(15, 10, 'X', {backgroundColor: "#000000", color: "#ffffff"}).setScale(2); //Creates the exit button.
 
         this.alien.setCollideWorldBounds(true); //Sets collisions between the alien and the game's boundaries.
@@ -43,8 +42,8 @@ class Easy extends Phaser.Scene{
 
         this.physics.add.overlap(this.alien, this.money, () => { //Sets overlaping between the alien and the coin, as well as how the user gets points.
             this.money.setVisible(false);
-            this.points += 1;
-            this.placar.setText('Suas moedas: ' + this.points);
+            this.points[0] += 1;
+            this.placar.setText('Suas moedas: ' + this.points[0]);
             this.money.x = Phaser.Math.RND.between (50,680);
             this.money.y = 20;
             this.money.setVisible(true);
@@ -52,8 +51,8 @@ class Easy extends Phaser.Scene{
 
         this.physics.add.overlap(this.bird, this.money, () => { //Sets overlaping between the bird and the coin, as well as how the bird gets points.
             this.money.setVisible(false);
-            this.points += 1;
-            this.bird.placar.setText('Moedas do pássaro: ' + this.points);
+            this.points[1] += 1;
+            this.bird.placar.setText('Moedas do pássaro: ' + this.points[1]);
             this.money.x = Phaser.Math.RND.between (50,680);
             this.money.y = 20;
             this.money.setVisible(true);
