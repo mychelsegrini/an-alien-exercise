@@ -12,4 +12,4 @@ This activity was developed in the Institute of Technology and Leadership (Intel
 - **Publicação no GitHub, em conta individual e repositório apropriado: até 1 ponto**
     - Published.
 - **Desafio! Utilize a estrutura de dados do tipo lista em seu código: até 1 ponto**
-    - Used, for example, in the property "scene" (that holds the game's list of scenes as classes) in the constant "config."
+    - Used, for example, in the property "scene" (that holds the game's list of scenes as classes) in the constant "config." Also, the user's and bird's points are stored in a single array.
