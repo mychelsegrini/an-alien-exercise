@@ -60,10 +60,6 @@ class InitialScreen extends Phaser.Scene{
             }, 1000)
             
         };
-
-        if(game.music.isPlaying && game.music != undefined){
-            this.add.text(gameWidth/2 - 165, 560, "Playing Nocturne Op.48 No.1 - Frédéric Chopin",{color:"#39ff14"}).setScale(0.8);
-        }
     }
 
     update(){
